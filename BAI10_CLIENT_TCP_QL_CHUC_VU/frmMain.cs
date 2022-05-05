@@ -35,7 +35,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 
 
 
-        frmChucVu fCV;
+        frmThuoc fCV;
         frmNhanVien fNV;
         frmKetNoi fKN;
         frmDangNhap fDN;
@@ -53,7 +53,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                 fKN.MdiParent = this;
                 fKN.Show();                
             }
-           
+            this.WindowState = FormWindowState.Maximized;
             HienThiMenu();
         }        
 
@@ -69,10 +69,10 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                 i_dangxuat.Enabled = true;
 
 
-                i_dmChucVu.Enabled = true;
-                i_dmNhanVien.Enabled = true;
-                i_bangluong.Enabled = true;
-                i_quatrinhluong.Enabled = true;
+                 i_Thuoc.Enabled = true;
+                //i_dmNhanVien.Enabled = true;
+                //i_bangluong.Enabled = true;
+                //i_quatrinhluong.Enabled = true;
                 
             }
             else
@@ -83,10 +83,10 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                  i_dangnhap.Enabled = true;               
                 i_dangxuat.Enabled = false;
 
-                i_dmChucVu.Enabled = false;
-                i_dmNhanVien.Enabled = false;
-                i_bangluong.Enabled = false;
-                i_quatrinhluong.Enabled = false;
+                //i_dmChucVu.Enabled = false;
+                //i_dmNhanVien.Enabled = false;
+                //i_bangluong.Enabled = false;
+                //i_quatrinhluong.Enabled = false;
             }
 
         }
@@ -95,7 +95,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         { 
             if (fCV == null || fCV.IsDisposed)
             {
-                fCV = new frmChucVu();
+                //fCV = new frmChucVu();
                 fCV.MdiParent = this;
                 fCV.Show();
             }
@@ -202,6 +202,17 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // Đăng xuất & thiết lập lại menu
             kiemtradangnhap = false;
             HienThiMenu();
+        }
+
+
+        private void i_Thuoc_Click_1(object sender, EventArgs e)
+        {
+            if (fCV == null || fCV.IsDisposed)
+            {
+                fCV = new frmThuoc();
+                fCV.MdiParent = this;
+                fCV.Show();
+            }
         }
     }
 }
