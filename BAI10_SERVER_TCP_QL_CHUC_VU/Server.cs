@@ -12,7 +12,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SqlClient;//Man abc
 
 namespace BAI10_SERVER_TCP_QL_CHUC_VU
 {
