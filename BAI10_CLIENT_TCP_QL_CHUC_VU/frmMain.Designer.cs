@@ -30,16 +30,9 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         private void InitializeComponent()
         {
             this.menuMain = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.stt_hoten = new System.Windows.Forms.ToolStripStatusLabel();
-            this.stt_thoigian = new System.Windows.Forms.ToolStripStatusLabel();
+            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.i_dangnhap = new System.Windows.Forms.ToolStripMenuItem();
             this.i_dangxuat = new System.Windows.Forms.ToolStripMenuItem();
-            this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.i_BenhNhan = new System.Windows.Forms.ToolStripMenuItem();
             this.i_Thuoc = new System.Windows.Forms.ToolStripMenuItem();
             this.i_Admin = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +49,9 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.i_DuLieu = new System.Windows.Forms.ToolStripMenuItem();
             this.i_SaoLuu = new System.Windows.Forms.ToolStripMenuItem();
             this.i_PhucHoi = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.stt_hoten = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stt_thoigian = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuMain.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,56 +62,14 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.menuMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem1,
             this.i_BenhNhan,
             this.i_Thuoc,
             this.i_Admin});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
-            this.menuMain.Size = new System.Drawing.Size(1263, 35);
+            this.menuMain.Size = new System.Drawing.Size(1263, 33);
             this.menuMain.TabIndex = 2;
             this.menuMain.Text = "menuStrip1";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stt_hoten,
-            this.stt_thoigian});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 691);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1263, 32);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // stt_hoten
-            // 
-            this.stt_hoten.Name = "stt_hoten";
-            this.stt_hoten.Size = new System.Drawing.Size(66, 25);
-            this.stt_hoten.Text = "Họ tên";
-            // 
-            // stt_thoigian
-            // 
-            this.stt_thoigian.Name = "stt_thoigian";
-            this.stt_thoigian.Size = new System.Drawing.Size(176, 25);
-            this.stt_thoigian.Text = "Thời gian đăng nhập";
-            // 
-            // i_dangnhap
-            // 
-            this.i_dangnhap.Name = "i_dangnhap";
-            this.i_dangnhap.Size = new System.Drawing.Size(270, 34);
-            this.i_dangnhap.Text = "Đăng nhập";
-            this.i_dangnhap.Click += new System.EventHandler(this.i_dangnhap_Click);
-            // 
-            // i_dangxuat
-            // 
-            this.i_dangxuat.Enabled = false;
-            this.i_dangxuat.Name = "i_dangxuat";
-            this.i_dangxuat.Size = new System.Drawing.Size(270, 34);
-            this.i_dangxuat.Text = "Đăng xuất";
-            this.i_dangxuat.Click += new System.EventHandler(this.i_dangxuat_Click);
             // 
             // hệThốngToolStripMenuItem
             // 
@@ -126,36 +80,20 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(103, 29);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
-            // toolStripMenuItem4
+            // i_dangnhap
             // 
-            this.toolStripMenuItem4.Enabled = false;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(111, 29);
-            this.toolStripMenuItem4.Text = "Bệnh nhân";
+            this.i_dangnhap.Name = "i_dangnhap";
+            this.i_dangnhap.Size = new System.Drawing.Size(202, 34);
+            this.i_dangnhap.Text = "Đăng nhập";
+            this.i_dangnhap.Click += new System.EventHandler(this.i_dangnhap_Click);
             // 
-            // toolStripMenuItem1
+            // i_dangxuat
             // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.toolStripMenuItem1.Enabled = false;
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 29);
-            this.toolStripMenuItem1.Text = "Tài khoản";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(268, 34);
-            this.toolStripMenuItem2.Text = "Thông tin tài khoản";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(268, 34);
-            this.toolStripMenuItem3.Text = "Đăng xuất";
+            this.i_dangxuat.Enabled = false;
+            this.i_dangxuat.Name = "i_dangxuat";
+            this.i_dangxuat.Size = new System.Drawing.Size(202, 34);
+            this.i_dangxuat.Text = "Đăng xuất";
+            this.i_dangxuat.Click += new System.EventHandler(this.i_dangxuat_Click);
             // 
             // i_BenhNhan
             // 
@@ -163,6 +101,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.i_BenhNhan.Name = "i_BenhNhan";
             this.i_BenhNhan.Size = new System.Drawing.Size(111, 29);
             this.i_BenhNhan.Text = "Bệnh nhân";
+            this.i_BenhNhan.Click += new System.EventHandler(this.i_BenhNhan_Click);
             // 
             // i_Thuoc
             // 
@@ -193,7 +132,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.i_LuongBacSi,
             this.i_QLBenhNhan});
             this.i_ThongKe.Name = "i_ThongKe";
-            this.i_ThongKe.Size = new System.Drawing.Size(188, 34);
+            this.i_ThongKe.Size = new System.Drawing.Size(270, 34);
             this.i_ThongKe.Text = "Thống kê";
             // 
             // i_DoanhThu
@@ -223,13 +162,13 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // i_TaiKhoanQL
             // 
             this.i_TaiKhoanQL.Name = "i_TaiKhoanQL";
-            this.i_TaiKhoanQL.Size = new System.Drawing.Size(188, 34);
+            this.i_TaiKhoanQL.Size = new System.Drawing.Size(270, 34);
             this.i_TaiKhoanQL.Text = "Tài khoản";
             // 
             // i_BacSi
             // 
             this.i_BacSi.Name = "i_BacSi";
-            this.i_BacSi.Size = new System.Drawing.Size(188, 34);
+            this.i_BacSi.Size = new System.Drawing.Size(270, 34);
             this.i_BacSi.Text = "Bác sĩ";
             // 
             // i_XemLog
@@ -238,7 +177,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.i_LogForm,
             this.i_LogButton});
             this.i_XemLog.Name = "i_XemLog";
-            this.i_XemLog.Size = new System.Drawing.Size(188, 34);
+            this.i_XemLog.Size = new System.Drawing.Size(270, 34);
             this.i_XemLog.Text = "Xem log";
             // 
             // i_LogForm
@@ -259,7 +198,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.i_SaoLuu,
             this.i_PhucHoi});
             this.i_DuLieu.Name = "i_DuLieu";
-            this.i_DuLieu.Size = new System.Drawing.Size(188, 34);
+            this.i_DuLieu.Size = new System.Drawing.Size(270, 34);
             this.i_DuLieu.Text = "Dữ liệu";
             // 
             // i_SaoLuu
@@ -273,6 +212,31 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.i_PhucHoi.Name = "i_PhucHoi";
             this.i_PhucHoi.Size = new System.Drawing.Size(182, 34);
             this.i_PhucHoi.Text = "Phục hồi";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stt_hoten,
+            this.stt_thoigian});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 691);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1263, 32);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // stt_hoten
+            // 
+            this.stt_hoten.Name = "stt_hoten";
+            this.stt_hoten.Size = new System.Drawing.Size(66, 25);
+            this.stt_hoten.Text = "Họ tên";
+            // 
+            // stt_thoigian
+            // 
+            this.stt_thoigian.Name = "stt_thoigian";
+            this.stt_thoigian.Size = new System.Drawing.Size(176, 25);
+            this.stt_thoigian.Text = "Thời gian đăng nhập";
             // 
             // frmMain
             // 
@@ -304,10 +268,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         private System.Windows.Forms.ToolStripMenuItem hệThốngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem i_dangnhap;
         private System.Windows.Forms.ToolStripMenuItem i_dangxuat;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        public System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem i_BenhNhan;
         private System.Windows.Forms.ToolStripMenuItem i_Thuoc;
         private System.Windows.Forms.ToolStripMenuItem i_Admin;

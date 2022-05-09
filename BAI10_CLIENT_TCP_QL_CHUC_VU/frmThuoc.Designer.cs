@@ -115,7 +115,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // 
             this.dgvThuoc.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
             this.dgvThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThuoc.Location = new System.Drawing.Point(519, 184);
+            this.dgvThuoc.Location = new System.Drawing.Point(515, 184);
             this.dgvThuoc.Name = "dgvThuoc";
             this.dgvThuoc.ReadOnly = true;
             this.dgvThuoc.RowHeadersWidth = 51;
@@ -124,6 +124,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.dgvThuoc.Size = new System.Drawing.Size(705, 382);
             this.dgvThuoc.TabIndex = 30;
             this.dgvThuoc.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThuoc_CellContentClick);
+            this.dgvThuoc.Click += new System.EventHandler(this.dgvThuoc_Click);
             // 
             // btnTimThuoc
             // 
@@ -135,6 +136,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnTimThuoc.TabIndex = 29;
             this.btnTimThuoc.Text = "Tìm";
             this.btnTimThuoc.UseVisualStyleBackColor = false;
+            this.btnTimThuoc.Click += new System.EventHandler(this.btnTimThuoc_Click);
             // 
             // label11
             // 
@@ -176,6 +178,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnXoaThuoc.TabIndex = 27;
             this.btnXoaThuoc.Text = "Xóa";
             this.btnXoaThuoc.UseVisualStyleBackColor = false;
+            this.btnXoaThuoc.Click += new System.EventHandler(this.btnXoaThuoc_Click);
             // 
             // btnSuaThuoc
             // 
@@ -187,6 +190,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnSuaThuoc.TabIndex = 26;
             this.btnSuaThuoc.Text = "Sửa";
             this.btnSuaThuoc.UseVisualStyleBackColor = false;
+            this.btnSuaThuoc.Click += new System.EventHandler(this.btnSuaThuoc_Click);
             // 
             // btnThemThuoc
             // 
@@ -198,6 +202,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnThemThuoc.TabIndex = 25;
             this.btnThemThuoc.Text = "Thêm";
             this.btnThemThuoc.UseVisualStyleBackColor = false;
+            this.btnThemThuoc.Click += new System.EventHandler(this.btnThemThuoc_Click);
             // 
             // label6
             // 
@@ -384,7 +389,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.panel5.Size = new System.Drawing.Size(380, 32);
             this.panel5.TabIndex = 18;
             // 
-            // frmChucVu
+            // frmThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -405,7 +410,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel5);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frmChucVu";
+            this.Name = "frmThuoc";
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);

@@ -118,11 +118,15 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                     if (chon == 1)
                     {
                         //nhận macv, tencv, hspc từ client
-                        string macv = sr.ReadLine();
-                        string tencv = sr.ReadLine();
-                        float hspc = float.Parse(sr.ReadLine());
+                        string MaThuoc = sr.ReadLine();
+                        string TenThuoc = sr.ReadLine();
+                        string DonVi = sr.ReadLine();
+                        int SoLuong = int.Parse(sr.ReadLine());
+                        DateTime NSX = DateTime.Parse(sr.ReadLine());
+                        DateTime HSD = DateTime.Parse(sr.ReadLine());
+                        int GiaThuoc = int.Parse(sr.ReadLine());
 
-                        DataTable table1 = themchucvudata(macv, tencv, hspc);
+                        DataTable table1 = themthuocdata(MaThuoc, TenThuoc, DonVi, SoLuong, NSX, HSD, GiaThuoc);
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table1));
@@ -131,9 +135,9 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                     //chọn = 2 là sự kiện khi client nhấn nút xóa
                     if (chon == 2)
                     {
-                        string macv = sr.ReadLine();
+                        string MaThuoc = sr.ReadLine();
 
-                        DataTable table2 = xoachucvudata(macv);
+                        DataTable table2 = xoathuocdata(MaThuoc);
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table2));
@@ -143,11 +147,15 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                     //chọn = 3 là sự kiện khi client nhấn nút cập nhật
                     if (chon == 3)
                     {
-                        string macv = sr.ReadLine();
-                        string tencv = sr.ReadLine();
-                        float hspc = float.Parse(sr.ReadLine());
+                        string MaThuoc = sr.ReadLine();
+                        string TenThuoc = sr.ReadLine();
+                        string DonVi = sr.ReadLine();
+                        int SoLuong = int.Parse(sr.ReadLine());
+                        DateTime NSX = DateTime.Parse(sr.ReadLine());
+                        DateTime HSD = DateTime.Parse(sr.ReadLine());
+                        int GiaThuoc = int.Parse(sr.ReadLine());
 
-                        DataTable table3 = capnhatchucvudata(macv, tencv, hspc);
+                        DataTable table3 = capnhatthuocdata(MaThuoc, TenThuoc, DonVi, SoLuong, NSX, HSD, GiaThuoc);
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table3));
@@ -156,9 +164,9 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                     //chọn = 4 là sự kiện khi client nhấn nút tìm
                     if (chon == 4)
                     {
-                        string tencvtim = sr.ReadLine();
+                        string TenThuoc = sr.ReadLine();
 
-                        DataTable table1 = timtenchucvudata(tencvtim);
+                        DataTable table1 = timtenthuocdata(TenThuoc);
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table1));
@@ -167,8 +175,8 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                     //chọn = 5 tìm chức vụ theo macv
                     if (chon == 5)
                     {
-                        string macvtim = sr.ReadLine();
-                        int kq = timmachucvudata(macvtim);
+                        string mathuoctim = sr.ReadLine();
+                        int kq = timmathuocdata(mathuoctim);
 
                         sw.WriteLine(kq);
                         sw.Flush();
@@ -178,14 +186,14 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                     //chọn = 6 lấy danh sách chức vụ
                     if (chon == 6)
                     {
-                        //tạo datatable lấy dữ liệu table chức vụ từ sql server
-                        DataTable table6 = getdataThuoc();
+                        ////tạo datatable lấy dữ liệu table chức vụ từ sql server
+                        //DataTable table6 = getdataThuoc();
 
-                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
-                        clientSock.Send(SerializeData(table6));
+                        ////chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        //clientSock.Send(SerializeData(table6));
 
                         //tạo datatable lấy dữ liệu table nhân viên từ sql server
-                        DataTable table7 = getdataNhanVien();
+                        DataTable table7 = getdataBenhNhan();
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table7));
@@ -236,9 +244,9 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             return dt;
         }
 
-        private DataTable getdataNhanVien()
+        private DataTable getdataBenhNhan()
         {
-            string sTruyVan = "select * from Thuoc";
+            string sTruyVan = "select * from BenhNhan";
 
             SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
             DataTable dt = new DataTable();
@@ -246,11 +254,11 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
 
             return dt;
         }
-        private DataTable themchucvudata(string macv, string tencv, float hspc)
+        private DataTable themthuocdata(string MaThuoc, string TenThuoc, string DonVi, int SoLuong, DateTime NSX, DateTime HSD, int GiaThuoc)
         {
             bool kt = false;
             DataTable dt = new DataTable();
-            string sTruyVan = string.Format(@"insert into chucvu values(N'{0}',N'{1}',N'{2}')", macv, tencv,hspc);
+            string sTruyVan = string.Format(@"insert into Thuoc values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}')", MaThuoc, TenThuoc, DonVi, SoLuong, NSX, HSD, GiaThuoc);
             try
             {
                 SqlCommand cm = new SqlCommand(sTruyVan, KetNoi);
@@ -263,18 +271,18 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             }
             if(kt == true)
             {
-                string sTruyVan2 = "select * from chucvu";
+                string sTruyVan2 = "select * from Thuoc";
                 SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
                 da.Fill(dt);               
             }            
             return dt;    
         }
 
-        private DataTable xoachucvudata(string macv)
+        private DataTable xoathuocdata(string MaThuoc)
         {
             bool kt = false;
             DataTable dt2 = new DataTable();
-            string sTruyVan1 = string.Format(@"delete from chucvu where macv='{0}'", macv);
+            string sTruyVan1 = string.Format(@"delete from Thuoc where MaThuoc='{0}'", MaThuoc);
             //MessageBox.Show(sTruyVan1.ToString());
             try
             {
@@ -288,7 +296,7 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             }
             if (kt == true)
             {
-                string sTruyVan2 = "select * from chucvu";
+                string sTruyVan2 = "select * from Thuoc";
                 SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
                 da.Fill(dt2);
             }
@@ -296,11 +304,11 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
 
         }
 
-        private DataTable capnhatchucvudata(string macv, string tencv, float hspc)
+        private DataTable capnhatthuocdata(string MaThuoc, string TenThuoc, string DonVi, int SoLuong, DateTime NSX, DateTime HSD, int GiaThuoc)
         {
             bool kt = false;
             DataTable dt = new DataTable();
-            string sTruyVan = string.Format(@"update chucvu set tencv=N'{0}',hsphucap='{1}' where macv='{2}'", tencv, hspc, macv);  
+            string sTruyVan = string.Format(@"update Thuoc set TenThuoc=N'{0}',DonVi='{1}'',SoLuong='{2}'',NSX='{3}'',HSD='{4}'',GiaThuoc='{5}' where MaThuoc='{6}'", TenThuoc, DonVi, SoLuong, NSX, HSD, GiaThuoc, MaThuoc);  
             try
             {
                 SqlCommand cm = new SqlCommand(sTruyVan, KetNoi);
@@ -313,18 +321,18 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             }
             if (kt == true)
             {
-                string sTruyVan2 = "select * from chucvu";
+                string sTruyVan2 = "select * from Thuoc";
                 SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
                 da.Fill(dt);
             }
             return dt;
 
         }
-        private DataTable timtenchucvudata(string tencvtim)
+        private DataTable timtenthuocdata(string tenthuoctim)
         {
             bool kt = false;
             DataTable dt = new DataTable();
-            string sTruyVan = string.Format(@"select * from chucvu where tencv like '%{0}%'", tencvtim);
+            string sTruyVan = string.Format(@"select * from Thuoc where TenThuoc like '%{0}%'", tenthuoctim);
             //MessageBox.Show("sql: "+sTruyVan);
             SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
             da.Fill(dt);
@@ -333,11 +341,11 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
 
         }
 
-        private int timmachucvudata(string macvtim)
+        private int timmathuocdata(string mathuoctim)
         {
             int kq = 1;
             DataTable dt = new DataTable();
-            string sTruyVan = string.Format(@"select * from chucvu where macv = '{0}'", macvtim);          
+            string sTruyVan = string.Format(@"select * from Thuoc where MaThuoc = '{0}'", mathuoctim);          
             SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
             da.Fill(dt);
             
