@@ -214,6 +214,23 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                         sw.Flush();
 
                     }
+
+                    if (chon == 8) 
+                    {
+                        //nhận macv, tencv, hspc từ client
+                        string HoLot = sr.ReadLine();
+                        string TenBN = sr.ReadLine();
+                        string GioiTinh = sr.ReadLine();
+                        DateTime NgaySinh = DateTime.Parse(sr.ReadLine());
+                        string DiaChi = sr.ReadLine();
+                        string LienHe = sr.ReadLine();
+                        string Ghichu = sr.ReadLine();
+
+                        DataTable table1 = thembenhnhandata(HoLot, TenBN, GioiTinh, NgaySinh, DiaChi, LienHe, Ghichu);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table1));
+                    }
                 }
             }    
             
@@ -355,6 +372,30 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                 return 1;
             else
                 return 0;
+        }
+
+        private DataTable thembenhnhandata(string HoLot, string TenBN, string GioiTinh, DateTime NgaySinh, string DiaChi, string LienHe, string Ghichu)
+        {
+            bool kt = false;
+            DataTable dt = new DataTable();
+            string sTruyVan = string.Format(@"insert into BenhNhan values(N'{0}',N'{1}',N'{2}','{3}',N'{4}',N'{5}',N'{6}')", HoLot, TenBN, GioiTinh, NgaySinh, DiaChi, LienHe, Ghichu);
+            try
+            {
+                SqlCommand cm = new SqlCommand(sTruyVan, KetNoi);
+                cm.ExecuteNonQuery();
+                kt = true;
+            }
+            catch (Exception ex)
+            {
+                kt = false;
+            }
+            if (kt == true)
+            {
+                string sTruyVan2 = "select * from BenhNhan";
+                SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
+                da.Fill(dt);
+            }
+            return dt;
         }
 
         private int kiemtradangnhap(string tendangnhap, string matkhau)

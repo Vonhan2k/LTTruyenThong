@@ -87,5 +87,94 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             return bf1.Deserialize(ms);
 
         }
+
+        private void btnThemBN_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra dữ liệu có bị bỏ trống 
+            if (txtHoLot.Text == "" || txtTenBN.Text == "" || txtLienHe.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ dữ liệu!");
+                return;
+            }
+            // Kiểm tra mã nhân viên có độ dài chuỗi hợp lệ hay không
+            //if (txt_macv.Text.Length > 5)
+            //{
+            //    MessageBox.Show("Mã chức vụ tối đa 5 ký tự!");
+            //    return;
+            //}
+
+            //if (timThuocTheoMaThuoc(txtMaThuoc.Text) == true)
+            //{
+            //    MessageBox.Show("Mã thuốc đã tồn tại!");
+            //    return;
+            //}
+
+            chon = 8; 
+            string HoLot = txtHoLot.Text;
+            string TenBN = txtTenBN.Text;
+            string GioiTinh;
+            if (radBNNam.Checked == true)
+            {
+                GioiTinh = "Nam";
+            }
+            else
+            {
+                GioiTinh = "Nữ";
+            }
+            string NgaySinh = dtNgaySinh.Text.ToString();
+            string DiaChi = txtDiaChi.Text;
+            string LienHe = txtLienHe.Text;
+            string Ghichu = txtGhiChu.Text;
+
+            //thêm chức vụ            
+            sr = new StreamReader(frmKetNoi.ns);
+            sw = new StreamWriter(frmKetNoi.ns);
+
+            sw.WriteLine(chon);
+            sw.WriteLine(HoLot);
+            sw.WriteLine(TenBN);
+            sw.WriteLine(GioiTinh);
+            sw.WriteLine(NgaySinh);
+            sw.WriteLine(DiaChi);
+            sw.WriteLine(LienHe);
+            sw.WriteLine(Ghichu);
+            sw.Flush();
+
+            //tạo mảng byte để nhận dữ liệu từ máy chủ
+            byte[] data = new byte[1024 * 5000];
+            frmKetNoi.clientSock.Receive(data);
+
+            //chuyển dữ liệu vừa nhận dạng mảng byte sang datatable
+            DataTable dt = (DataTable)DeserializeData(data);
+
+            //đưa datatable vào dataGridView
+            dgvBenhNhan.DataSource = dt;
+        }
+
+        private void dgvBenhNhan_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow dr = new DataGridViewRow();
+            dr = dgvBenhNhan.SelectedRows[0];
+            txtMaBN.Text = dr.Cells["MaBenhNhan"].Value.ToString();
+            txtHoLot.Text = dr.Cells["HoLot"].Value.ToString();
+            txtTenBN.Text = dr.Cells["TenBN"].Value.ToString();
+            if (dr.Cells["GioiTinh"].Value.ToString() == "Nam")
+            {
+                radBNNam.Checked = true;
+            }
+            else
+            {
+                radNuBN.Checked = true;
+            }
+            dtNgaySinh.Text = dr.Cells["NgaySinh"].Value.ToString();
+            txtDiaChi.Text = dr.Cells["DiaChi"].Value.ToString();
+            txtLienHe.Text = dr.Cells["DiaChi"].Value.ToString();
+            txtGhiChu.Text = dr.Cells["GhiChu"].Value.ToString();
+
+            //btnKham.Enabled = true;
+            //btnXoa.Enabled = true;
+            //var a = new WriteLog();
+            //a.ButtonWrite("Xem thông tin bệnh nhân " + dr.Cells["HoLot"].Value.ToString() + " " + dr.Cells["TenBN"].Value.ToString());
+        }
     }
 }
