@@ -77,6 +77,9 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                 cmbDonVi.Items.Add("Gói");
                 cmbDonVi.Items.Add("Ống");
                 cmbDonVi.Items.Add("Chai");
+
+
+                Auto();
             }
             catch (Exception ex)
             {
@@ -506,6 +509,37 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 
             //đưa datatable vào dataGridView
             dgvThuoc.DataSource = dt;
+        }
+
+        private void Auto()
+        {
+            chon = 4;
+            string tenthuoctim = txtTimThuoc.Text;
+
+            sr = new StreamReader(frmKetNoi.ns);
+            sw = new StreamWriter(frmKetNoi.ns);
+
+            sw.WriteLine(chon);
+            sw.WriteLine(tenthuoctim);
+
+            sw.Flush();
+
+            //tạo mảng byte để nhận dữ liệu từ máy chủ
+            byte[] data = new byte[1024 * 5000];
+            frmKetNoi.clientSock.Receive(data);
+
+            //chuyển dữ liệu vừa nhận dạng mảng byte sang datatable
+            DataTable dt = (DataTable)DeserializeData(data);
+
+            AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                //lstTenThuoc.Add(dt.Rows[i]["MaThuoc"].ToString());
+                coll.Add(dt.Rows[i]["TenThuoc"].ToString());
+            }
+            txtTimThuoc.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtTimThuoc.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtTimThuoc.AutoCompleteCustomSource = coll;
         }
     }
 }
