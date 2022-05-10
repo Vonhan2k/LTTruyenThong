@@ -31,12 +31,9 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         StreamWriter sw;
 
         int chon = 0;
-        int chon1 = 1;
 
-
-
-        frmChucVu fCV;
-        frmNhanVien fNV;
+        frmThuoc fCV;
+        frmBenhNhan fBN;
         frmKetNoi fKN;
         frmDangNhap fDN;
 
@@ -53,7 +50,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                 fKN.MdiParent = this;
                 fKN.Show();                
             }
-           
+            this.WindowState = FormWindowState.Maximized;
             HienThiMenu();
         }        
 
@@ -69,10 +66,10 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                 i_dangxuat.Enabled = true;
 
 
-                i_dmChucVu.Enabled = true;
-                i_dmNhanVien.Enabled = true;
-                i_bangluong.Enabled = true;
-                i_quatrinhluong.Enabled = true;
+                i_Thuoc.Enabled = true;
+                i_BenhNhan.Enabled = true;
+                //i_bangluong.Enabled = true;
+                //i_quatrinhluong.Enabled = true;
                 
             }
             else
@@ -83,23 +80,14 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                  i_dangnhap.Enabled = true;               
                 i_dangxuat.Enabled = false;
 
-                i_dmChucVu.Enabled = false;
-                i_dmNhanVien.Enabled = false;
-                i_bangluong.Enabled = false;
-                i_quatrinhluong.Enabled = false;
+                //i_dmChucVu.Enabled = false;
+                //i_dmNhanVien.Enabled = false;
+                //i_bangluong.Enabled = false;
+                //i_quatrinhluong.Enabled = false;
             }
 
         }
 
-        private void i_dmChucVu_Click(object sender, EventArgs e)
-        { 
-            if (fCV == null || fCV.IsDisposed)
-            {
-                fCV = new frmChucVu();
-                fCV.MdiParent = this;
-                fCV.Show();
-            }
-        }
 
         private void kếtNốiServerToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -111,15 +99,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             }
         }
 
-        private void i_dmNhanVien_Click(object sender, EventArgs e)
-        {
-            if (fNV == null || fNV.IsDisposed)
-            {
-                fNV = new frmNhanVien();
-                fNV.MdiParent = this;
-                fNV.Show();
-            }
-        }
 
         private void i_dangnhap_Click(object sender, EventArgs e)
         {
@@ -202,6 +181,27 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // Đăng xuất & thiết lập lại menu
             kiemtradangnhap = false;
             HienThiMenu();
+        }
+
+
+        private void i_Thuoc_Click_1(object sender, EventArgs e)
+        {
+            if (fCV == null || fCV.IsDisposed)
+            {
+                fCV = new frmThuoc();
+                fCV.MdiParent = this;
+                fCV.Show();
+            }
+        }
+
+        private void i_BenhNhan_Click(object sender, EventArgs e)
+        {
+            if (fBN == null || fBN.IsDisposed)
+            {
+                fBN = new frmBenhNhan();
+                fBN.MdiParent = this;
+                fBN.Show();
+            }
         }
     }
 }

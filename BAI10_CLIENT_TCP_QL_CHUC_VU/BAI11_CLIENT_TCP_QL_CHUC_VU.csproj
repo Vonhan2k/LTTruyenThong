@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmChucVu.cs">
+    <Compile Include="frmBenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucVu.Designer.cs">
-      <DependentUpon>frmChucVu.cs</DependentUpon>
+    <Compile Include="frmBenhNhan.Designer.cs">
+      <DependentUpon>frmBenhNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThuoc.Designer.cs">
+      <DependentUpon>frmThuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -78,8 +84,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmChucVu.resx">
-      <DependentUpon>frmChucVu.cs</DependentUpon>
+    <EmbeddedResource Include="frmBenhNhan.resx">
+      <DependentUpon>frmBenhNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThuoc.resx">
+      <DependentUpon>frmThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>

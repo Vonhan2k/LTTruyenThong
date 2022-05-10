@@ -21,5 +21,10 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         {
 
         }
+
+        private void frmDangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

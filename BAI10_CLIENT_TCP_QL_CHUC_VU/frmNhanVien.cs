@@ -71,10 +71,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 
                 //đưa datatable vào dataGridView
                 dgDSNhanVien.DataSource = dt_nhanvien;   
-                
-
-
-
 
                 //clientSock.Close();
             }

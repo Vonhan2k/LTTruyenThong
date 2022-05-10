@@ -40,10 +40,10 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // btnHuy
             // 
             this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHuy.Location = new System.Drawing.Point(200, 106);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHuy.Location = new System.Drawing.Point(225, 132);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(100, 28);
+            this.btnHuy.Size = new System.Drawing.Size(112, 35);
             this.btnHuy.TabIndex = 12;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
@@ -51,10 +51,10 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // btnDangNhap
             // 
             this.btnDangNhap.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnDangNhap.Location = new System.Drawing.Point(72, 106);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDangNhap.Location = new System.Drawing.Point(81, 132);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(100, 28);
+            this.btnDangNhap.Size = new System.Drawing.Size(112, 35);
             this.btnDangNhap.TabIndex = 11;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
@@ -62,56 +62,57 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(136, 52);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatKhau.Location = new System.Drawing.Point(153, 65);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(189, 22);
+            this.txtMatKhau.Size = new System.Drawing.Size(212, 26);
             this.txtMatKhau.TabIndex = 10;
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(136, 17);
-            this.txtTen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTen.Location = new System.Drawing.Point(153, 21);
+            this.txtTen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(189, 22);
+            this.txtTen.Size = new System.Drawing.Size(212, 26);
             this.txtTen.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 58);
+            this.label3.Location = new System.Drawing.Point(35, 72);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 16);
+            this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Mật khẩu";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 23);
+            this.label2.Location = new System.Drawing.Point(35, 29);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 16);
+            this.label2.Size = new System.Drawing.Size(116, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Tên đăng nhập";
             // 
             // frmDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 162);
+            this.ClientSize = new System.Drawing.Size(433, 202);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTen);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Đăng nhập";
+            this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
