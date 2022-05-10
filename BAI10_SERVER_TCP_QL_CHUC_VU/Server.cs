@@ -39,7 +39,7 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
         public void MoKetNoi()
         {
          //   s = @"Data Source=DESKTOP-T84NIPD\MAYAO;Initial Catalog=QLNV;Integrated Security=True; User ID=sa;password=123456";
-            s = @"Data Source=.\SQLEXPRESS;Initial Catalog=QLNV;Integrated Security=True";
+            s = @"Data Source=.\SQLEXPRESS;Initial Catalog=QLPM;Integrated Security=True";
 
             //s = @"Data Source=MAY1\SQLEXPRESS;Initial Catalog=QLNV;Integrated Security=True";
 
@@ -206,6 +206,23 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                         sw.Flush();
 
                     }
+
+                    //chọn = 6 lấy danh sách chức vụ
+                    if (chon == 8)
+                    {
+                        //tạo datatable lấy dữ liệu table chức vụ từ sql server
+                        DataTable table6 = getdataThuoc();
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table6));
+
+                        //tạo datatable lấy dữ liệu table nhân viên từ sql server
+                        //DataTable table7 = getdataNhanVien();
+
+                        ////chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        //clientSock.Send(SerializeData(table7));
+
+                    }
                 }
             }    
             
@@ -235,6 +252,19 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
 
             return dt;
         }
+
+        //
+        private DataTable getdataThuoc()
+        {
+            string sTruyVan = "select * from Thuoc";
+
+            SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+        //
 
         private DataTable getdataNhanVien()
         {
@@ -353,7 +383,7 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
         {
             int kq = 1;
             DataTable dt = new DataTable();
-            string sTruyVan = string.Format(@"select * from nguoidung where ten = '{0}' and matkhau = '{1}'", tendangnhap, matkhau);
+            string sTruyVan = string.Format(@"select * from Account where TenDangNhap = '{0}' and MatKhau = '{1}'", tendangnhap, matkhau);
             SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
             da.Fill(dt);
 
