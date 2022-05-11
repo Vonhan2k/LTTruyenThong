@@ -176,5 +176,34 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             //var a = new WriteLog();
             //a.ButtonWrite("Xem thông tin bệnh nhân " + dr.Cells["HoLot"].Value.ToString() + " " + dr.Cells["TenBN"].Value.ToString());
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)//nên thêm phân quyền xóa chỉ cho quản trị viên
+        {
+            // kiểm tra mã có tồn tại
+            if (txtMaBN.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn mã thuốc!");
+                return;
+            }
+            chon = 9;
+            string macv = txtMaBN.Text;
+
+            sr = new StreamReader(frmKetNoi.ns);
+            sw = new StreamWriter(frmKetNoi.ns);
+
+            sw.WriteLine(chon);
+            sw.WriteLine(macv);
+            sw.Flush();
+
+            //tạo mảng byte để nhận dữ liệu từ máy chủ
+            byte[] data = new byte[1024 * 5000];
+            frmKetNoi.clientSock.Receive(data);
+
+            //chuyển dữ liệu vừa nhận dạng mảng byte sang datatable
+            DataTable dt = (DataTable)DeserializeData(data);
+
+            //đưa datatable vào dataGridView
+            dgvBenhNhan.DataSource = dt;
+        }
     }
 }

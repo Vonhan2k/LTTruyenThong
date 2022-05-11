@@ -350,7 +350,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnXoa.Enabled = false;
             this.btnXoa.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXoa.ForeColor = System.Drawing.Color.Red;
             this.btnXoa.Location = new System.Drawing.Point(313, 286);
@@ -360,6 +359,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnXoa.TabIndex = 11;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSuaBN
             // 
