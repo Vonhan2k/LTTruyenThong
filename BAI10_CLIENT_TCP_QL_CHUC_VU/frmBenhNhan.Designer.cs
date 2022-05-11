@@ -373,6 +373,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnSuaBN.TabIndex = 9;
             this.btnSuaBN.Text = "Sửa";
             this.btnSuaBN.UseVisualStyleBackColor = false;
+            this.btnSuaBN.Click += new System.EventHandler(this.btnSuaBN_Click);
             // 
             // btnThemBN
             // 

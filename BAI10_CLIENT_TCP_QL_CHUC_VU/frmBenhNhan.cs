@@ -205,5 +205,64 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             //đưa datatable vào dataGridView
             dgvBenhNhan.DataSource = dt;
         }
+
+        private void btnSuaBN_Click(object sender, EventArgs e)
+        {
+            // kiểm tra mã có tồn tại
+            if (txtMaBN.Text == "" || txtHoLot.Text == "" || txtTenBN.Text == "" || txtLienHe.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ dữ liệu!");
+                return;
+            }
+            //if (timThuocTheoMaThuoc(txtMaThuoc.Text) == false)
+            //{
+            //    MessageBox.Show("Mã thuốc không tồn tại!");
+            //    return;
+            //}
+
+            chon = 10;
+            string MaBN = txtMaBN.Text;
+            string HoLot = txtHoLot.Text;
+            string TenBN = txtTenBN.Text;
+            string GioiTinh;
+            if (radBNNam.Checked == true)
+            {
+                GioiTinh = "Nam";
+            }
+            else
+            {
+                GioiTinh = "Nữ";
+            }
+            string NgaySinh = dtNgaySinh.Text.ToString();
+            string DiaChi = txtDiaChi.Text;
+            string LienHe = txtLienHe.Text;
+            string Ghichu = txtGhiChu.Text;
+
+            //thêm chức vụ
+
+            sr = new StreamReader(frmKetNoi.ns);
+            sw = new StreamWriter(frmKetNoi.ns);
+
+            sw.WriteLine(chon);
+            sw.WriteLine(MaBN);
+            sw.WriteLine(HoLot);
+            sw.WriteLine(TenBN);
+            sw.WriteLine(GioiTinh);
+            sw.WriteLine(NgaySinh);
+            sw.WriteLine(DiaChi);
+            sw.WriteLine(LienHe);
+            sw.WriteLine(Ghichu);
+            sw.Flush();
+
+            //tạo mảng byte để nhận dữ liệu từ máy chủ
+            byte[] data = new byte[1024 * 5000];
+            frmKetNoi.clientSock.Receive(data);
+
+            //chuyển dữ liệu vừa nhận dạng mảng byte sang datatable
+            DataTable dt = (DataTable)DeserializeData(data);
+
+            //đưa datatable vào dataGridView
+            dgvBenhNhan.DataSource = dt;
+        }
     }
 }

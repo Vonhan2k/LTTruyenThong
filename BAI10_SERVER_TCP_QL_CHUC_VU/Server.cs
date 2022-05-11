@@ -244,6 +244,23 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                         clientSock.Send(SerializeData(table2));
 
                     }
+
+                    if (chon == 10)
+                    {
+                        string MaBN = sr.ReadLine();
+                        string HoLot = sr.ReadLine();
+                        string TenBN = sr.ReadLine();
+                        string GioiTinh = sr.ReadLine();
+                        DateTime NgaySinh = DateTime.Parse(sr.ReadLine());
+                        string DiaChi = sr.ReadLine();
+                        string LienHe = sr.ReadLine();
+                        string Ghichu = sr.ReadLine();
+
+                        DataTable table3 = capnhatbenhnhandata(MaBN, HoLot, TenBN, GioiTinh, NgaySinh, DiaChi, LienHe, Ghichu);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table3));
+                    }
                 }
             }    
             
@@ -338,7 +355,7 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
         {
             bool kt = false;
             DataTable dt = new DataTable();
-            string sTruyVan = string.Format(@"update Thuoc set TenThuoc=N'{0}',DonVi='{1}'',SoLuong='{2}'',NSX='{3}'',HSD='{4}'',GiaThuoc='{5}' where MaThuoc='{6}'", TenThuoc, DonVi, SoLuong, NSX, HSD, GiaThuoc, MaThuoc);  
+            string sTruyVan = string.Format(@"update Thuoc set TenThuoc=N'{0}',DonVi=N'{1}',SoLuong={2},NSX=N'{3}',HSD='{4}',GiaThuoc={5} where MaThuoc='{6}'", TenThuoc, DonVi, SoLuong, NSX, HSD, GiaThuoc, MaThuoc);  
             try
             {
                 SqlCommand cm = new SqlCommand(sTruyVan, KetNoi);
@@ -434,6 +451,31 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                 da.Fill(dt2);
             }
             return dt2;
+
+        }
+
+        private DataTable capnhatbenhnhandata(string MaBN, string HoLot, string TenBN, string GioiTinh, DateTime NgaySinh, string DiaChi, string LienHe, string Ghichu)
+        {
+            bool kt = false;
+            DataTable dt = new DataTable();
+            string sTruyVan = string.Format(@"update BenhNhan set HoLot=N'{0}',TenBN=N'{1}',GioiTinh=N'{2}',NgaySinh='{3}',DiaChi=N'{4}',LienHe=N'{5}', Ghichu=N'{6}' where MaBenhNhan='{7}'", HoLot, TenBN, GioiTinh, NgaySinh, DiaChi, LienHe, Ghichu, MaBN);
+            try
+            {
+                SqlCommand cm = new SqlCommand(sTruyVan, KetNoi);
+                cm.ExecuteNonQuery();
+                kt = true;
+            }
+            catch (Exception ex)
+            {
+                kt = false;
+            }
+            if (kt == true)
+            {
+                string sTruyVan2 = "select * from BenhNhan";
+                SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
+                da.Fill(dt);
+            }
+            return dt;
 
         }
 
