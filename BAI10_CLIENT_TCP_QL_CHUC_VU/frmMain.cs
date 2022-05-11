@@ -39,6 +39,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 
         string tennguoidung = "";
         bool kiemtradangnhap = false;
+        int loaitaikhoan;
         public static bool kiemtraketnoi = false;
 
 
@@ -59,15 +60,30 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             if (kiemtradangnhap == true)
             {
                 // Hiển thị trạng thái đăng nhập
-                stt_hoten.Text = "Người dùng: "+tennguoidung;
+                stt_hoten.Text = "Người dùng: " + tennguoidung;
                 stt_thoigian.Text = "Thời điểm đăng nhập: " + DateTime.Now;
 
                 i_dangnhap.Enabled = false;
                 i_dangxuat.Enabled = true;
 
+                if (loaitaikhoan == 1)
+                {
+                    i_Admin.Enabled = true;
+                    // i_Account.Enabled = true;
+                    i_BenhNhan.Enabled = true;
+                    i_Thuoc.Enabled = true;
+                }
+                else
+                {
+                    i_Admin.Enabled = false;
+                    // i_Account.Enabled = true;
+                    i_BenhNhan.Enabled = true;
+                    i_Thuoc.Enabled = true;
+                }
+                
 
-                i_Thuoc.Enabled = true;
-                i_BenhNhan.Enabled = true;
+
+                
                 //i_bangluong.Enabled = true;
                 //i_quatrinhluong.Enabled = true;
                 
@@ -125,11 +141,13 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                     //lưu ý phải thêm w.Flush để đẩy dữ liệu đi
 
                     int kq = int.Parse(sr.ReadLine());
+                    int loai = int.Parse(sr.ReadLine());
                     tennguoidung = sr.ReadLine();
                     //MessageBox.Show("KQ" + kq + " ten ND: "+ tennguoidung);
                     if (kq == 1)
                     {
                         kiemtradangnhap = true;
+                        loaitaikhoan = loai;
                     }
                     else
                     {

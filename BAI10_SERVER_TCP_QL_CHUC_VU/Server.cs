@@ -206,18 +206,20 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                        
                         string tendangnhap = sr.ReadLine();
                         string matkhau = sr.ReadLine();
-                      
-                        int kq = kiemtradangnhap(tendangnhap, matkhau);
+                        //int AccLoai = sr.ReadLine();
 
+                        int kq = kiemtradangnhap(tendangnhap, matkhau);
+                        string loai = getLoai(tendangnhap);
                         sw.WriteLine(kq);
+                        sw.WriteLine(loai);
                         sw.WriteLine(tendangnhap);
+                        //sw.WriteLine(AccLoai);
                         sw.Flush();
 
                     }
 
                     if (chon == 8) 
                     {
-                        //nhận macv, tencv, hspc từ client
                         string HoLot = sr.ReadLine();
                         string TenBN = sr.ReadLine();
                         string GioiTinh = sr.ReadLine();
@@ -230,6 +232,17 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table1));
+                    }
+
+                    if (chon == 9)
+                    {
+                        string MaBN = sr.ReadLine();
+
+                        DataTable table2 = xoabenhnhandata(MaBN);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table2));
+
                     }
                 }
             }    
@@ -398,21 +411,55 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             return dt;
         }
 
+        private DataTable xoabenhnhandata (string MaBN)
+        {
+            bool kt = false;
+            DataTable dt2 = new DataTable();
+            string sTruyVan1 = string.Format(@"delete from BenhNhan where MaBenhNhan='{0}'", MaBN);
+            //MessageBox.Show(sTruyVan1.ToString());
+            try
+            {
+                SqlCommand cm = new SqlCommand(sTruyVan1, KetNoi);
+                cm.ExecuteNonQuery();
+                kt = true;
+            }
+            catch (Exception ex)
+            {
+                kt = false;
+            }
+            if (kt == true)
+            {
+                string sTruyVan2 = "select * from BenhNhan";
+                SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
+                da.Fill(dt2);
+            }
+            return dt2;
+
+        }
+
         private int kiemtradangnhap(string tendangnhap, string matkhau)
         {
-            int kq = 1;
+            //int kq = 1;
             DataTable dt = new DataTable();
             string sTruyVan = string.Format(@"select * from Account where TenDangNhap = '{0}' and MatKhau = '{1}'", tendangnhap, matkhau);
             SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
             da.Fill(dt);
-
             int dem = dt.Rows.Count;
-
             if (dem > 0)
                 return 1;
             else
                 return 0;
         }
-        
+
+        private string getLoai(string tendangnhap)
+        {
+            //int kq = 1;
+            DataTable dt = new DataTable();
+            string sTruyVan = string.Format(@"select * from Account where TenDangNhap = '{0}'", tendangnhap);
+            SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
+            da.Fill(dt);
+            return dt.Rows[0]["Loai"].ToString();
+        }
+
     }
 }
