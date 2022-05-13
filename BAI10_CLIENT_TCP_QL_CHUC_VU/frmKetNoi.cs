@@ -12,6 +12,7 @@ using System.Net.Sockets;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 {
@@ -26,6 +27,8 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         public IPEndPoint ipEnd;
         public static Socket clientSock;
         public static NetworkStream ns;
+
+        frmMain fM;
 
         private void frmKetNoi_Load(object sender, EventArgs e)
         {
@@ -62,9 +65,11 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                 //khai báo luồng kết nối mạng 
                 ns = new NetworkStream(clientSock);
 
-
+              
                 frmMain.kiemtraketnoi = true;
                
+               
+
                 //clientSock.Close();
             }
             catch (Exception ex)
@@ -73,7 +78,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             }
             MessageBox.Show("Kết nối Server thành công!");
             this.Close();
-           
         }
     }
 }

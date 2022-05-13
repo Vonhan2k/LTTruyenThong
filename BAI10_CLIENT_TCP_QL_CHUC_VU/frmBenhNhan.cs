@@ -7,12 +7,13 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using WeifenLuo.WinFormsUI.Docking;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 {
-    public partial class frmBenhNhan : Form
+    public partial class frmBenhNhan : DockContent
     {
         public frmBenhNhan()
         {
@@ -25,6 +26,11 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         int chon = 0;
 
         private void frmBenhNhan_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            HienThiDSBenhNhan();
+        }
+        private void HienThiDSBenhNhan()
         {
             try
             {
@@ -79,7 +85,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             }
         }
 
-        public object DeserializeData(byte[] theByteArray)
+            public object DeserializeData(byte[] theByteArray)
         {
             MemoryStream ms = new MemoryStream(theByteArray);
             BinaryFormatter bf1 = new BinaryFormatter();
@@ -252,6 +258,42 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             sw.WriteLine(DiaChi);
             sw.WriteLine(LienHe);
             sw.WriteLine(Ghichu);
+            sw.Flush();
+
+            //tạo mảng byte để nhận dữ liệu từ máy chủ
+            byte[] data = new byte[1024 * 5000];
+            frmKetNoi.clientSock.Receive(data);
+
+            //chuyển dữ liệu vừa nhận dạng mảng byte sang datatable
+            DataTable dt = (DataTable)DeserializeData(data);
+
+            //đưa datatable vào dataGridView
+            dgvBenhNhan.DataSource = dt;
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            HienThiDSBenhNhan();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            if (txtTimBN.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn nhập tên bệnh nhân!");
+                return;
+            }
+
+            chon = 11;
+            string tenthbenhnhantim = txtTimBN.Text;
+
+            sr = new StreamReader(frmKetNoi.ns);
+            sw = new StreamWriter(frmKetNoi.ns);
+
+            sw.WriteLine(chon);
+            sw.WriteLine(tenthbenhnhantim);
+
             sw.Flush();
 
             //tạo mảng byte để nhận dữ liệu từ máy chủ

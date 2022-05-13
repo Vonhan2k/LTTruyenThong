@@ -11,6 +11,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 {
@@ -31,17 +32,18 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         StreamWriter sw;
 
         int chon = 0;
-
+        
         frmThuoc fCV;
         frmBenhNhan fBN;
         frmKetNoi fKN;
+        frmBacSi fBacSi;
         frmDangNhap fDN;
 
         string tennguoidung = "";
         bool kiemtradangnhap = false;
         int loaitaikhoan;
         public static bool kiemtraketnoi = false;
-
+       
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -49,7 +51,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             {
                 fKN = new frmKetNoi();
                 fKN.MdiParent = this;
-                fKN.Show();                
+                fKN.Show();
             }
             this.WindowState = FormWindowState.Maximized;
             HienThiMenu();
@@ -219,6 +221,16 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                 fBN = new frmBenhNhan();
                 fBN.MdiParent = this;
                 fBN.Show();
+            }
+        }
+
+        private void i_BacSi_Click(object sender, EventArgs e)
+        {
+            if (fBacSi == null || fBacSi.IsDisposed)
+            {
+                fBacSi = new frmBacSi();
+                fBacSi.MdiParent = this;
+                fBacSi.Show();
             }
         }
     }

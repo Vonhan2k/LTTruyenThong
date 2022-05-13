@@ -182,7 +182,6 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                         sw.Flush();
                     }
 
-
                     //chọn = 6 lấy danh sách chức vụ
                     if (chon == 6)
                     {
@@ -260,6 +259,87 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table3));
+                    }
+
+                    //chọn = 11 là sự kiện khi client nhấn nút tìm
+                    if (chon == 11)
+                    {
+                        string TenBN = sr.ReadLine();
+
+                        DataTable table1 = timtenbndata(TenBN);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table1));
+                    }
+
+                    //chọn = 1 là sự kiện khi client nhấn nút thêm
+                    if (chon == 12)
+                    {
+                        //nhận macv, tencv, hspc từ client
+                        string HoLot = sr.ReadLine();
+                        string TenBS = sr.ReadLine();
+                        string GioiTinh = sr.ReadLine();
+                        string SDT = sr.ReadLine();
+                        string DiaChi = sr.ReadLine();
+                        string Email = sr.ReadLine();
+                        DateTime NgaySinh = DateTime.Parse(sr.ReadLine());
+                        float HeSoLuong = float.Parse(sr.ReadLine());
+
+                        DataTable table1 = thembacsidata(HoLot, TenBS, GioiTinh, NgaySinh, DiaChi, SDT, Email, HeSoLuong);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table1));
+                    }
+
+                    //chọn = 2 là sự kiện khi client nhấn nút xóa
+                    if (chon == 13)
+                    {
+                        string MaBacSi = sr.ReadLine();
+
+                        DataTable table2 = xoabacsidata(MaBacSi);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table2));
+
+                    }
+
+                    //chọn = 3 là sự kiện khi client nhấn nút cập nhật
+                    if (chon == 14)
+                    {
+                        string HoLot = sr.ReadLine();
+                        string TenBS = sr.ReadLine();
+                        string GioiTinh = sr.ReadLine();
+                        string SDT = sr.ReadLine();
+                        string DiaChi = sr.ReadLine();
+                        string Email = sr.ReadLine();
+                        DateTime NgaySinh = DateTime.Parse(sr.ReadLine());
+                        float HeSoLuong = float.Parse(sr.ReadLine());
+                        int MaBacSi = int.Parse(sr.ReadLine());
+
+                        DataTable table3 = capnhatbacsidata(HoLot, TenBS, GioiTinh, NgaySinh, DiaChi, SDT, Email, HeSoLuong, MaBacSi);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table3));
+                    }
+
+                    //chọn = 4 là sự kiện khi client nhấn nút tìm
+                    if (chon == 15)
+                    {
+                        string TenThuoc = sr.ReadLine();
+
+                        DataTable table1 = timtenthuocdata(TenThuoc);
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table1));
+                    }
+
+                    if (chon == 16)
+                    {
+                        //tạo datatable lấy dữ liệu từ sql server
+                        DataTable table = getdataBacSi();
+
+                        //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
+                        clientSock.Send(SerializeData(table));
                     }
                 }
             }    
@@ -479,6 +559,19 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
 
         }
 
+        private DataTable timtenbndata(string tenbntim)
+        {
+            bool kt = false;
+            DataTable dt = new DataTable();
+            string sTruyVan = string.Format(@"select * from BenhNhan where TenBN like '%{0}%'", tenbntim);
+            //MessageBox.Show("sql: "+sTruyVan);
+            SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
+            da.Fill(dt);
+
+            return dt;
+
+        }
+
         private int kiemtradangnhap(string tendangnhap, string matkhau)
         {
             //int kq = 1;
@@ -501,6 +594,103 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
             da.Fill(dt);
             return dt.Rows[0]["Loai"].ToString();
+        }
+
+        private DataTable getdataBacSi()
+        {
+            string sTruyVan = "select * from BacSi";
+
+            SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+        private DataTable thembacsidata(string HoLot, string TenBS, string GioiTinh, DateTime NgaySinh, string DiaChi, string SDT, string Email, float HeSoLuong)
+        {
+            bool kt = false;
+            DataTable dt = new DataTable();
+            string sTruyVan = string.Format(@"insert into BacSi values(N'{0}',N'{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}')", HoLot, TenBS, GioiTinh, NgaySinh.ToString("yyyy/MM/dd"), DiaChi, SDT, Email, HeSoLuong);
+            try
+            {
+                SqlCommand cm = new SqlCommand(sTruyVan, KetNoi);
+                cm.ExecuteNonQuery();
+                kt = true;
+            }
+            catch (Exception ex)
+            {
+                kt = false;
+            }
+            if (kt == true)
+            {
+                string sTruyVan2 = "select * from Thuoc";
+                SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        private DataTable xoabacsidata(string MaBacSi)
+        {
+            bool kt = false;
+            DataTable dt2 = new DataTable();
+            string sTruyVan1 = string.Format(@"delete from BacSi where MaBacSi='{0}'", MaBacSi);
+            //MessageBox.Show(sTruyVan1.ToString());
+            try
+            {
+                SqlCommand cm = new SqlCommand(sTruyVan1, KetNoi);
+                cm.ExecuteNonQuery();
+                kt = true;
+            }
+            catch (Exception ex)
+            {
+                kt = false;
+            }
+            if (kt == true)
+            {
+                string sTruyVan2 = "select * from BacSi";
+                SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
+                da.Fill(dt2);
+            }
+            return dt2;
+
+        }
+
+        private DataTable capnhatbacsidata(string HoLot, string TenBS, string GioiTinh, DateTime NgaySinh, string DiaChi, string SDT, string Email, float HeSoLuong, int MaBacSi)
+        {
+            bool kt = false;
+            DataTable dt = new DataTable();
+            string sTruyVan = string.Format(@"update BacSi set HoLot=N'{0}',TenBS=N'{1}',GioiTinh=N'{2}',NgaySinh='{3}',DiaChi=N'{4}',SDT='{5}',Email='{6}',HeSoLuong={7} where MaBacSi='{8}'", HoLot, TenBS, GioiTinh, NgaySinh.ToString("yyyy/MM/dd"), DiaChi, SDT, Email, HeSoLuong, MaBacSi);
+            try
+            {
+                SqlCommand cm = new SqlCommand(sTruyVan, KetNoi);
+                cm.ExecuteNonQuery();
+                kt = true;
+            }
+            catch (Exception ex)
+            {
+                kt = false;
+            }
+            if (kt == true)
+            {
+                string sTruyVan2 = "select * from Thuoc";
+                SqlDataAdapter da = new SqlDataAdapter(sTruyVan2, KetNoi);
+                da.Fill(dt);
+            }
+            return dt;
+
+        }
+        private DataTable timtenBacSidata(string tenthuoctim)
+        {
+            bool kt = false;
+            DataTable dt = new DataTable();
+            string sTruyVan = string.Format(@"select * from Thuoc where TenThuoc like '%{0}%'", tenthuoctim);
+            //MessageBox.Show("sql: "+sTruyVan);
+            SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
+            da.Fill(dt);
+
+            return dt;
+
         }
 
     }

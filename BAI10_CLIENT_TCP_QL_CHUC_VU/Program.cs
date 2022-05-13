@@ -17,6 +17,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmMain());
+            
         }
     }
 }

@@ -170,6 +170,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.i_BacSi.Name = "i_BacSi";
             this.i_BacSi.Size = new System.Drawing.Size(270, 34);
             this.i_BacSi.Text = "Bác sĩ";
+            this.i_BacSi.Click += new System.EventHandler(this.i_BacSi_Click);
             // 
             // i_XemLog
             // 

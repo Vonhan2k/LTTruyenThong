@@ -38,9 +38,10 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(48, 7);
+            this.label1.Location = new System.Drawing.Point(72, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
+            this.label1.Size = new System.Drawing.Size(116, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "SERVER";
             // 
@@ -48,9 +49,10 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             // 
             this.btn_start_server.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_start_server.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_start_server.Location = new System.Drawing.Point(42, 66);
+            this.btn_start_server.Location = new System.Drawing.Point(63, 102);
+            this.btn_start_server.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_start_server.Name = "btn_start_server";
-            this.btn_start_server.Size = new System.Drawing.Size(165, 56);
+            this.btn_start_server.Size = new System.Drawing.Size(248, 86);
             this.btn_start_server.TabIndex = 4;
             this.btn_start_server.Text = "Start Server";
             this.btn_start_server.UseVisualStyleBackColor = true;
@@ -58,12 +60,14 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             // 
             // Server
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 152);
+            this.ClientSize = new System.Drawing.Size(448, 234);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_start_server);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Server";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";
             this.Load += new System.EventHandler(this.Server_Load);
             this.ResumeLayout(false);
