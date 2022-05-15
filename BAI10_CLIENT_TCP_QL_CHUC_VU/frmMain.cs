@@ -39,7 +39,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         frmBacSi fBacSi;
         frmDangNhap fDN;
 
-        string tennguoidung = "";
+        public static string tennguoidung = "";
         bool kiemtradangnhap = false;
         int loaitaikhoan;
         public static bool kiemtraketnoi = false;

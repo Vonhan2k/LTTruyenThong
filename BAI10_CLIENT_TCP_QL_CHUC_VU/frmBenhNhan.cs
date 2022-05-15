@@ -177,8 +177,8 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             txtLienHe.Text = dr.Cells["DiaChi"].Value.ToString();
             txtGhiChu.Text = dr.Cells["GhiChu"].Value.ToString();
 
-            //btnKham.Enabled = true;
-            //btnXoa.Enabled = true;
+            btnKham.Enabled = true;
+            btnXoa.Enabled = true;
             //var a = new WriteLog();
             //a.ButtonWrite("Xem thông tin bệnh nhân " + dr.Cells["HoLot"].Value.ToString() + " " + dr.Cells["TenBN"].Value.ToString());
         }
@@ -305,6 +305,17 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
 
             //đưa datatable vào dataGridView
             dgvBenhNhan.DataSource = dt;
+        }
+
+        private void btnKham_Click(object sender, EventArgs e)
+        {
+            frmKhamBenh f = new frmKhamBenh();
+            //this.Hide();
+            f.txtIdBenhNhan.Text = txtIdBenhNhan.Text;
+            f.txtBenhNhan.Text = txtHoLot.Text + " " + txtTenBN.Text;
+            f.ShowDialog();
+
+            //this.Show();
         }
     }
 }

@@ -37,38 +37,38 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.dgvBenhNhan = new System.Windows.Forms.DataGridView();
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtMaBN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtMaBN = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtHoLot = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtHoLot = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.txtPatientSureName = new System.Windows.Forms.TextBox();
             this.txtPatientName = new System.Windows.Forms.Label();
+            this.txtPatientSureName = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.txtTenBN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtTenBN = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtIdBenhNhan = new System.Windows.Forms.TextBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSuaBN = new System.Windows.Forms.Button();
             this.btnThemBN = new System.Windows.Forms.Button();
-            this.txtGhiChu = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.txtLienHe = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtLienHe = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.radBNNam = new System.Windows.Forms.RadioButton();
-            this.radNuBN = new System.Windows.Forms.RadioButton();
+            this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.radNuBN = new System.Windows.Forms.RadioButton();
+            this.radBNNam = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel12.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBenhNhan)).BeginInit();
@@ -96,6 +96,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnKham.TabIndex = 17;
             this.btnKham.Text = "Khám bệnh";
             this.btnKham.UseVisualStyleBackColor = false;
+            this.btnKham.Click += new System.EventHandler(this.btnKham_Click);
             // 
             // panel12
             // 
@@ -179,6 +180,16 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.panel4.Size = new System.Drawing.Size(338, 32);
             this.panel4.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(186, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã bệnh nhân:";
+            // 
             // txtMaBN
             // 
             this.txtMaBN.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -190,16 +201,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.txtMaBN.Size = new System.Drawing.Size(162, 32);
             this.txtMaBN.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(3, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã bệnh nhân:";
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.label2);
@@ -209,6 +210,16 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(336, 32);
             this.panel5.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Họ lót:";
             // 
             // txtHoLot
             // 
@@ -221,16 +232,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.txtHoLot.Size = new System.Drawing.Size(241, 32);
             this.txtHoLot.TabIndex = 1;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(3, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Họ lót:";
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.txtPatientName);
@@ -240,14 +241,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(191, 32);
             this.panel6.TabIndex = 4;
-            // 
-            // txtPatientSureName
-            // 
-            this.txtPatientSureName.Location = new System.Drawing.Point(53, 5);
-            this.txtPatientSureName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPatientSureName.Name = "txtPatientSureName";
-            this.txtPatientSureName.Size = new System.Drawing.Size(132, 26);
-            this.txtPatientSureName.TabIndex = 1;
             // 
             // txtPatientName
             // 
@@ -259,6 +252,14 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.txtPatientName.TabIndex = 0;
             this.txtPatientName.Text = "Tên:";
             // 
+            // txtPatientSureName
+            // 
+            this.txtPatientSureName.Location = new System.Drawing.Point(53, 5);
+            this.txtPatientSureName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPatientSureName.Name = "txtPatientSureName";
+            this.txtPatientSureName.Size = new System.Drawing.Size(132, 26);
+            this.txtPatientSureName.TabIndex = 1;
+            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.label8);
@@ -269,16 +270,6 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.panel13.Size = new System.Drawing.Size(191, 32);
             this.panel13.TabIndex = 2;
             // 
-            // txtTenBN
-            // 
-            this.txtTenBN.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtTenBN.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTenBN.Location = new System.Drawing.Point(67, 5);
-            this.txtTenBN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTenBN.Name = "txtTenBN";
-            this.txtTenBN.Size = new System.Drawing.Size(132, 32);
-            this.txtTenBN.TabIndex = 0;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -288,6 +279,16 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.label8.Size = new System.Drawing.Size(63, 25);
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên:";
+            // 
+            // txtTenBN
+            // 
+            this.txtTenBN.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.txtTenBN.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtTenBN.Location = new System.Drawing.Point(67, 5);
+            this.txtTenBN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTenBN.Name = "txtTenBN";
+            this.txtTenBN.Size = new System.Drawing.Size(132, 32);
+            this.txtTenBN.TabIndex = 0;
             // 
             // panel2
             // 
@@ -365,16 +366,15 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnThemBN.UseVisualStyleBackColor = false;
             this.btnThemBN.Click += new System.EventHandler(this.btnThemBN_Click);
             // 
-            // txtGhiChu
+            // panel11
             // 
-            this.txtGhiChu.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtGhiChu.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtGhiChu.Location = new System.Drawing.Point(112, 29);
-            this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtGhiChu.Multiline = true;
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(435, 78);
-            this.txtGhiChu.TabIndex = 0;
+            this.panel11.Controls.Add(this.label7);
+            this.panel11.Controls.Add(this.txtGhiChu);
+            this.panel11.Location = new System.Drawing.Point(3, 246);
+            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(583, 86);
+            this.panel11.TabIndex = 7;
             // 
             // label7
             // 
@@ -386,35 +386,16 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.label7.TabIndex = 0;
             this.label7.Text = "Ghi chú:";
             // 
-            // panel11
+            // txtGhiChu
             // 
-            this.panel11.Controls.Add(this.label7);
-            this.panel11.Controls.Add(this.txtGhiChu);
-            this.panel11.Location = new System.Drawing.Point(3, 246);
-            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(583, 86);
-            this.panel11.TabIndex = 7;
-            // 
-            // txtLienHe
-            // 
-            this.txtLienHe.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.txtLienHe.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtLienHe.Location = new System.Drawing.Point(109, 1);
-            this.txtLienHe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtLienHe.Name = "txtLienHe";
-            this.txtLienHe.Size = new System.Drawing.Size(435, 32);
-            this.txtLienHe.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label6.Location = new System.Drawing.Point(3, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Liên hệ:";
+            this.txtGhiChu.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.txtGhiChu.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtGhiChu.Location = new System.Drawing.Point(112, 29);
+            this.txtGhiChu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGhiChu.Multiline = true;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(435, 78);
+            this.txtGhiChu.TabIndex = 0;
             // 
             // panel10
             // 
@@ -426,15 +407,35 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.panel10.Size = new System.Drawing.Size(583, 34);
             this.panel10.TabIndex = 6;
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(3, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Địa chỉ:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label6.Location = new System.Drawing.Point(3, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 25);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Liên hệ:";
+            // 
+            // txtLienHe
+            // 
+            this.txtLienHe.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.txtLienHe.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtLienHe.Location = new System.Drawing.Point(109, 1);
+            this.txtLienHe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLienHe.Name = "txtLienHe";
+            this.txtLienHe.Size = new System.Drawing.Size(435, 32);
+            this.txtLienHe.TabIndex = 0;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.txtDiaChi);
+            this.panel9.Controls.Add(this.label5);
+            this.panel9.Location = new System.Drawing.Point(3, 118);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(583, 85);
+            this.panel9.TabIndex = 5;
             // 
             // txtDiaChi
             // 
@@ -447,25 +448,25 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.txtDiaChi.Size = new System.Drawing.Size(435, 74);
             this.txtDiaChi.TabIndex = 1;
             // 
-            // panel9
+            // label5
             // 
-            this.panel9.Controls.Add(this.txtDiaChi);
-            this.panel9.Controls.Add(this.label5);
-            this.panel9.Location = new System.Drawing.Point(3, 118);
-            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(583, 85);
-            this.panel9.TabIndex = 5;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label5.Location = new System.Drawing.Point(3, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Địa chỉ:";
             // 
-            // label4
+            // panel8
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(21, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Ngày sinh:";
+            this.panel8.Controls.Add(this.dtNgaySinh);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Location = new System.Drawing.Point(238, 79);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(351, 43);
+            this.panel8.TabIndex = 4;
             // 
             // dtNgaySinh
             // 
@@ -479,25 +480,38 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.dtNgaySinh.Size = new System.Drawing.Size(164, 29);
             this.dtNgaySinh.TabIndex = 1;
             // 
-            // panel8
+            // label4
             // 
-            this.panel8.Controls.Add(this.dtNgaySinh);
-            this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(238, 79);
-            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(351, 43);
-            this.panel8.TabIndex = 4;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label4.Location = new System.Drawing.Point(21, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Ngày sinh:";
             // 
-            // label3
+            // panel7
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(3, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Giới tính:";
+            this.panel7.Controls.Add(this.radNuBN);
+            this.panel7.Controls.Add(this.radBNNam);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Location = new System.Drawing.Point(3, 79);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(241, 41);
+            this.panel7.TabIndex = 3;
+            // 
+            // radNuBN
+            // 
+            this.radNuBN.AutoSize = true;
+            this.radNuBN.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.radNuBN.Location = new System.Drawing.Point(183, 6);
+            this.radNuBN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radNuBN.Name = "radNuBN";
+            this.radNuBN.Size = new System.Drawing.Size(56, 22);
+            this.radNuBN.TabIndex = 2;
+            this.radNuBN.Text = "Nữ";
+            this.radNuBN.UseVisualStyleBackColor = true;
             // 
             // radBNNam
             // 
@@ -513,28 +527,15 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.radBNNam.Text = "Nam";
             this.radBNNam.UseVisualStyleBackColor = true;
             // 
-            // radNuBN
+            // label3
             // 
-            this.radNuBN.AutoSize = true;
-            this.radNuBN.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.radNuBN.Location = new System.Drawing.Point(183, 6);
-            this.radNuBN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radNuBN.Name = "radNuBN";
-            this.radNuBN.Size = new System.Drawing.Size(56, 22);
-            this.radNuBN.TabIndex = 2;
-            this.radNuBN.Text = "Nữ";
-            this.radNuBN.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.radNuBN);
-            this.panel7.Controls.Add(this.radBNNam);
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(3, 79);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(241, 41);
-            this.panel7.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label3.Location = new System.Drawing.Point(3, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Giới tính:";
             // 
             // frmBenhNhan
             // 

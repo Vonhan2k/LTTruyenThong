@@ -29,7 +29,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Refresh = new System.Windows.Forms.Button();
             this.dtNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -92,6 +92,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btn_Refresh.TabIndex = 42;
             this.btn_Refresh.Text = "Refresh";
             this.btn_Refresh.UseVisualStyleBackColor = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // dtNgaySinh
             // 
@@ -129,7 +130,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             // 
             this.txthsluong.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.txthsluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txthsluong.Location = new System.Drawing.Point(171, 4);
+            this.txthsluong.Location = new System.Drawing.Point(174, 4);
             this.txthsluong.Margin = new System.Windows.Forms.Padding(4);
             this.txthsluong.Name = "txthsluong";
             this.txthsluong.Size = new System.Drawing.Size(215, 31);
@@ -372,6 +373,7 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.btnTimBS.TabIndex = 32;
             this.btnTimBS.Text = "Tìm";
             this.btnTimBS.UseVisualStyleBackColor = false;
+            this.btnTimBS.Click += new System.EventHandler(this.btnTimBS_Click);
             // 
             // panel4
             // 
@@ -445,9 +447,9 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             this.dgvBacSi.Name = "dgvBacSi";
             this.dgvBacSi.ReadOnly = true;
             this.dgvBacSi.RowHeadersWidth = 51;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.dgvBacSi.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dgvBacSi.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBacSi.RowTemplate.Height = 24;
             this.dgvBacSi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBacSi.Size = new System.Drawing.Size(1199, 268);

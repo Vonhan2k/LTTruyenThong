@@ -325,9 +325,9 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
                     //chọn = 4 là sự kiện khi client nhấn nút tìm
                     if (chon == 15)
                     {
-                        string TenThuoc = sr.ReadLine();
+                        string TenBacSi = sr.ReadLine();
 
-                        DataTable table1 = timtenthuocdata(TenThuoc);
+                        DataTable table1 = timtenbacsidata(TenBacSi);
 
                         //chuyển datatable sang dạng mảng byte --> rồi gởi sang client
                         clientSock.Send(SerializeData(table1));
@@ -680,11 +680,11 @@ namespace BAI10_SERVER_TCP_QL_CHUC_VU
             return dt;
 
         }
-        private DataTable timtenBacSidata(string tenthuoctim)
+        private DataTable timtenbacsidata(string tenbacsitim)
         {
             bool kt = false;
             DataTable dt = new DataTable();
-            string sTruyVan = string.Format(@"select * from Thuoc where TenThuoc like '%{0}%'", tenthuoctim);
+            string sTruyVan = string.Format(@"select * from BacSi where TenBS like '%{0}%'", tenbacsitim);
             //MessageBox.Show("sql: "+sTruyVan);
             SqlDataAdapter da = new SqlDataAdapter(sTruyVan, KetNoi);
             da.Fill(dt);

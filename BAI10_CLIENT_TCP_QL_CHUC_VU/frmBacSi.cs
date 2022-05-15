@@ -255,5 +255,40 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
             //đưa datatable vào dataGridView
             dgvBacSi.DataSource = dt;
         }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            HienThiDSBacSi();
+        }
+
+        private void btnTimBS_Click(object sender, EventArgs e)
+        {
+            if (txtTimBS.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn nhập tên bác sĩ!");
+                return;
+            }
+
+            chon = 15;
+            string tenbacsitim = txtTimBS.Text;
+
+            sr = new StreamReader(frmKetNoi.ns);
+            sw = new StreamWriter(frmKetNoi.ns);
+
+            sw.WriteLine(chon);
+            sw.WriteLine(tenbacsitim);
+
+            sw.Flush();
+
+            //tạo mảng byte để nhận dữ liệu từ máy chủ
+            byte[] data = new byte[1024 * 5000];
+            frmKetNoi.clientSock.Receive(data);
+
+            //chuyển dữ liệu vừa nhận dạng mảng byte sang datatable
+            DataTable dt = (DataTable)DeserializeData(data);
+
+            //đưa datatable vào dataGridView
+            dgvBacSi.DataSource = dt;
+        }
     }
 }
