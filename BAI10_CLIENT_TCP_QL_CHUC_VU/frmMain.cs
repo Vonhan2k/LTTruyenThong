@@ -98,9 +98,9 @@ namespace BAI10_CLIENT_TCP_QL_CHUC_VU
                  i_dangnhap.Enabled = true;               
                 i_dangxuat.Enabled = false;
 
-                //i_dmChucVu.Enabled = false;
-                //i_dmNhanVien.Enabled = false;
-                //i_bangluong.Enabled = false;
+                i_Admin.Enabled = false;
+                i_BenhNhan.Enabled = false;
+                i_Thuoc.Enabled = false;
                 //i_quatrinhluong.Enabled = false;
             }
 
